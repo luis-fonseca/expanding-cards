@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* para o alinhamento vertical */
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 90vw; /* de 100 fatias, pegamos 90 fatias */
+}
+
+.panel {
+    background-size: cover; /* para preservar os cantos arredondas em telas grandes */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative; /* para posicionar absolute o título */
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    position: absolute;
+    font-size: 24px;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active {
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity .3s ease-in .4s;
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-last-of-type(4),
+    .panel:nth-last-of-type(5) {
+        display: none;
+    }
+}
